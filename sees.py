@@ -1,9 +1,5 @@
 #!/usr/bin/python -W ignore::DeprecationWarning
 
-__author__ = 'Galkan'
-__version__ = '1.0'
-__date__ = '2014/01/12'
-
 try:
 	import sys
 	from lib.version import *
