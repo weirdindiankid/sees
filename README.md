@@ -86,8 +86,9 @@ Paramters used inf config file are as follows:
 
  - **time**: This parameter notes the time differences between sent emails. With this behaviour target SMTP servers are tried to be fooled in order not to classify the original phishing emails as spam. Two options are possible to determine the time differences. One of them is a fixed time period and this is the easy one. The other alternative is using a time range with a comma between, such as 1,3. This denotes waiting a random time difference between 1 and 3 seconds each time before sending a  phishing email.
 
- - **type**: This parameter specify the which email server you want to use. So Sees can parse and extract the email result.
- - **log_path**: 
+ - **type**: This parameter specify the which email server you want to use. So SEES can parse and extract the result.
+ - **log_path**: This parameter specify the log path that you want to use. So SEES knows which log file will be parsed to extract results. 
+ 
 ### Structure of Emails sent by SEES
 
  The structure of emails are represented in the following way;
@@ -164,6 +165,11 @@ Return-Path: <PfFYyS.YtODLA@example.com>
 From: MANAGER2@example.com
 
 ```  
+
+### SEES LOGGING
+
+Once all the emails have been sent, one can understand whats happening. SEES logged whole operations which you did to sees.log in your current working directory. When you look at the sees.log file;
+
 
 #### Disclaimer
 
