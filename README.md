@@ -1,6 +1,9 @@
 SEES
 ====
 
+#### Disclaimer
+
+Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 
 A Social Engineering Attack/Audit Tool for Spear Phishing
 
@@ -12,7 +15,7 @@ A Social Engineering Attack/Audit Tool for Spear Phishing
 
 #### Example SMTP Service Configuration
 
- It is possible to send emails with or without attachments with SEES. But first, a working SMTP service is needed to send an email. Here, postfix service will be used as an example. On Kali linux this can easily be achieved by using the package management system;
+ It is possible to send emails with or without attachments with SEES. But first, a working SMTP service is needed to send an email. You can use postfix or sendmail for this purpose.. Here, postfix service will be used as an example. On Kali linux this can easily be achieved by using the package management system; 
 
 ```
  # apt-get install postfix
@@ -57,6 +60,9 @@ domain = example.com
 [smtp]  
 server = 127.0.0.1  
 time = 1,3  
+[log]
+type = postfix
+log_path = /var/log/mail.log
 ```
 
 Paramters used inf config file are as follows:  
@@ -78,7 +84,8 @@ Paramters used inf config file are as follows:
 
  - **time**: This parameter notes the time differences between sent emails. With this behaviour target SMTP servers are tried to be fooled in order not to classify the original phishing emails as spam. Two options are possible to determine the time differences. One of them is a fixed time period and this is the easy one. The other alternative is using a time range with a comma between, such as 1,3. This denotes waiting a random time difference between 1 and 3 seconds each time before sending a  phishing email.
 
-
+ - **type**: This parameter specify the which email server you want to use. So Sees can parse and extract the email result.
+ - **log_path**: 
 ### Structure of Emails sent by SEES
 
  The structure of emails are represented in the following way;
