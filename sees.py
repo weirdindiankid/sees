@@ -2,44 +2,46 @@
 
 try:
 	import sys
-	from lib.version import *
+	import signal
 	from lib.main import Main
-	from lib.version import *
-	from lib.common import *
+	from lib.core.common import *
+	from lib.core.version import *
 except ImportError,e:
         import sys
         sys.stdout.write("%s\n" %e)
         sys.exit(1)
 
 
+def signal_handler(signal, frame):
+        print >> sys.stderr, "You have pressed Ctrl+C ..."
+        sys.exit(1)
+
 
 def sees():
 	main = Main()
-	
-	while True:
-		print >> sys.stdout, bcolors.FAIL + disclamer + bcolors.ENDC
-		agree = raw_input()	
-		if (agree == "Y" or agree == "y"):
-			try:
-				try:	
-					main.run()
-				except Exception, mess:
-					print mess
-					sys.exit(2)
-			except KeyboardInterrupt:
-				print message
-				sys.exit(3)
-		elif (agree == "N" or agree == "n"):
-			print message
-			sys.exit(4)
-		else:
-			print wrong_option
+	signal.signal(signal.SIGINT, signal_handler)	
 
+	while True:
+		mess = bcolors.FAIL + disclamer + bcolors.ENDC + " : "
+		sys.stdout.write(mess)
+
+		agree = raw_input()
+		if (agree == "Y" or agree == "y"):
+			try:	
+				main.run()
+			except Exception, err:
+				print >> sys.stderr, err
+				sys.exit(1)
+		elif (agree == "N" or agree == "n"):
+			print >> sys.stderr, message
+			sys.exit(1)
+		else:
+			print >> sys.stderr, wrong_option
 
 
 if __name__ == "__main__":
 	"""
-		Main Block for Sees
+		Main Block ... Sees ...
 	"""
 
 	sees()

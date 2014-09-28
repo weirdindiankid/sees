@@ -1,34 +1,60 @@
 
-
 try:
+        import os
+	import re
+	import sys
 	import random
 	import string
-	import MimeWriter
-        import mimetools
-        import cStringIO
-        import StringIO
-	import mimetypes
         import base64
-        import os
         import smtplib
-	import sys
-	from common import *
-	from exceptions import SeesExceptions
+        import StringIO
+        import mimetools
+	import mimetypes
+        import cStringIO
+	import MimeWriter
+	from core.common import *
+	from core.exceptions import SeesExceptions
 except ImportError,e:
         import sys
         sys.stdout.write("%s\n" %e)
         sys.exit(1)
+
 
 class Smtp:
 	"""
 		Functions and variables related to sending email ...
 	"""
 
+	email_id_list = []
+
 	def __init__(self):
 
 		self.num1 = random.randrange(4,8)
                 self.num2= random.randrange(5,9)
 
+
+	def parse_mail_log(self, mail_type, mail_log, real_mail_name, mail_to):
+
+		timestamp = None
+		mail_id = None
+		mail_reg = re.compile("\s([^:]+): from=<%s>"% real_mail_name)
+
+		log_file = open(mail_log, "r")	
+		for line in log_file:
+			if re.search(mail_reg, line):
+				timestamp = line.split(" ")[0] + " " + line.split(" ")[1] + " " + line.split(" ")[2]
+				mail_id = re.search(mail_reg, line).group(1)
+				break
+	
+		return_postfix  = "%s: to=<%s>.*status=(.*) %s"% (mail_id, mail_to, timestamp)
+		return_sendmail = "%s: to=<%s>.*stat=(.*) %s"% (mail_id, mail_to, timestamp)
+		result_list = {"postfix":return_postfix, "sendmail":return_sendmail}
+
+		log_file.close()
+
+		return result_list[mail_type]
+			
+	
 
 	def random_email(self):
 		"""
@@ -135,7 +161,7 @@ class Smtp:
 
 
 
-	def main(self, options, from_mail, from_mail_gecos, mail_to, subject, smtp_server, domain, html_file, verbose, attach = None):
+	def main(self, options, from_mail, from_mail_gecos, mail_to, subject, smtp_server, domain, html_file, verbose, mail_type, mail_log, attach = None):
                 """
                         Create email and send whatever options used attach or text ...
                 """
@@ -150,8 +176,8 @@ class Smtp:
                 # Ready to send email ...
                 if options == "attach":
                         text = ''
-
                         attach_list = []
+
                         for file in attach:
                                 attach_list.append(file)
 
@@ -163,6 +189,10 @@ class Smtp:
                         try:
                                 server = smtplib.SMTP("%s"% (smtp_server))
                                 server.sendmail('%s'% ( real_mail_name ), mail_to, message)
+
+				_email_id = self.parse_mail_log(mail_type, mail_log, real_mail_name, mail_to)
+				email_id = _email_id + " " + from_mail + " " + mail_to
+				Smtp.email_id_list.append(email_id)
 
                                 if verbose:
                                         print >> sys.stderr, bcolors.OKGREEN + "[+] " + bcolors.ENDC +  bcolors.FAIL + "%s"% (from_mail) + bcolors.ENDC + bcolors.FAIL + " -> " + bcolors.ENDC +  bcolors.OKBLUE + "%s"% (mail_to) + bcolors.ENDC
@@ -183,6 +213,10 @@ class Smtp:
                         try:
                                 server = smtplib.SMTP("%s"% (smtp_server))
                                 server.sendmail('%s'% ( real_mail_name ), mail_to, message)
+
+				_email_id = self.parse_mail_log(mail_type, mail_log, real_mail_name, mail_to)
+				email_id = _email_id + " " + from_mail + " " + mail_to
+				Smtp.email_id_list.append(email_id)
 
                                 if verbose:
                                         print >> sys.stderr, bcolors.OKGREEN + "[+] " + bcolors.ENDC +  bcolors.FAIL + "%s"% (from_mail) + bcolors.ENDC + bcolors.FAIL + " -> " + bcolors.ENDC +  bcolors.OKBLUE + "%s"% (mail_to) + bcolors.ENDC
