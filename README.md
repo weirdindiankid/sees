@@ -166,6 +166,7 @@ From: MANAGER2@example.com
 
 ```  
 
+
 ### SEES LOGGING
 
 Once all the emails have been sent, one can understand whats happening. SEES logged whole operations which you did to sees.log in your current working directory. When you look at the sees.log file;
@@ -175,7 +176,8 @@ Example Log File;
 SEES :: Sep 28 17:03:54 : MANAGER@example.com <=> mail_to@example.com :: Result: "sent (250 2.0.0 OK 1411913035 m13si9167381wiv.32 - gsmtp)"
 
 
+```
 #### Disclaimer
 
 Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
- 
+``` 
