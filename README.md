@@ -160,12 +160,11 @@ Y
 
  **-v** parameter prints the sent email on the screen for debugging purposes. The targeted user’s  email client will show MANAGER@example.com as the sender for the first email but the target SMTP server will process the same email as it is coming from PfFYyS.YtODLA@example.cpm. As it was pointed out before, the random email addresses are formed in order to bypass spam controls.  Example output:  
 
-``
+```
 Return-Path: <PfFYyS.YtODLA@example.com>  
 From: MANAGER2@example.com
 ```  
 
-```
 ### SEES LOGGING
 
 Once all the emails have been sent, one can understand whats happening. SEES logged whole operations which you did to sees.log in your current working directory. When you look at the sees.log file;
@@ -173,7 +172,6 @@ Once all the emails have been sent, one can understand whats happening. SEES log
 Example Log File;
 
 SEES :: Sep 28 17:03:54 : MANAGER@example.com <=> mail_to@example.com :: Result: "sent (250 2.0.0 OK 1411913035 m13si9167381wiv.32 - gsmtp)"
-
 
 ```
 #### Disclaimer
