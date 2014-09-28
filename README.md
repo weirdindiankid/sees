@@ -7,7 +7,7 @@ SEES
 Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 ```
 
-## A Social Engineering Attack/Audit Tool for Spear Phishing
+### A Social Engineering Attack/Audit Tool for Spear Phishing
 
 ### What is SEES?
 
