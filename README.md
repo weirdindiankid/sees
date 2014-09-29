@@ -1,9 +1,8 @@
 SEES
 ====
 
-
-#### Disclaimer
 ```
+#### Disclaimer
 Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 ```
 
@@ -165,13 +164,23 @@ Return-Path: <PfFYyS.YtODLA@example.com>
 From: MANAGER2@example.com
 ```  
 
-### SEES LOGGING
+### SEES Logging
 
-Once all the emails have been sent, one can understand whats happening. SEES logged whole operations which you did to sees.log in your current working directory. When you look at the sees.log file;
+Once all the emails have been sent, you can understand what's happening. SEES logged whole operations which you did to sees.log file in your current working directory.
+
+Log Format
+
+Time - From Email - To Email - Result
+
 
 Example Log Line;
 
+...
+...
 SEES :: Sep 28 17:03:54 : MANAGER@example.com <=> mail_to@example.com :: Result: "sent (250 2.0.0 OK 1411913035 m13si9167381wiv.32 - gsmtp)"
+...
+...
+
 
 ```
 #### Disclaimer
