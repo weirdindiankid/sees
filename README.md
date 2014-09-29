@@ -1,9 +1,9 @@
 SEES
 ====
 
-```
-#### Disclaimer
 
+#### Disclaimer
+```
 Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 ```
 
