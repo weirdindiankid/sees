@@ -146,7 +146,7 @@ From: MANAGER@example.com
 
  An example of sending emails with attachments is shown below.  
 ```
- # ./sees.py --attach data/sample.pdf data/sample.docx --config_file config/config.cfg --mail_user config/mail.user --html_file data/attach.text -v  
+ # ./sees.py --attach data/sample.pdf data/sample.docx --config_file config/sees.cfg --mail_user config/mail.user --html_file data/attach.text -v  
 
 Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK, Agree (Y|n)  
 Y  
