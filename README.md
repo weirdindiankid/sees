@@ -189,6 +189,6 @@ Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 ``` 
  
  
-#### Thansk To
+#### Thanks To
 
 - Bedirhan Urgun
