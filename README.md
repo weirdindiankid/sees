@@ -8,6 +8,8 @@ Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 
 ## A Social Engineering Attack/Audit Tool for Spear Phishing
 
+![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees.png)
+
 ### What is SEES?
 
  Most of the companies nowadays have their firewalls, threat monitoring and prevention security appliances setup. With these mechanisms in place, security precautions are taken and incidents are monitored. Inbound traffic being restricted, SEES on the other hand is developed for sending targeted phishing emails in order to carry sophisticated social engineering attacks/audits.
