@@ -131,33 +131,38 @@
                 <form class="form-horizontal" role="form">
                   <div class="form-group">
                     <label for="domain" class="col-sm-2 control-label">Domain</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="domain" placeholder="Domain" ng-model="configuration.domain">
                     </div>
+                    <div class="text-muted help">Domain name that the target SMTP server will get the phishing emails.</div>
                   </div>
                   <div class="form-group">
                     <label for="server" class="col-sm-2 control-label">Server</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="server" placeholder="Server" ng-model="configuration.smtpserver">
                     </div>
+                    <div class="text-muted help">SMTP server that the phishing emails will be sent from</div>                    
                   </div>                
                   <div class="form-group">
                     <label for="time" class="col-sm-2 control-label">Interval</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="time" placeholder="Time Interval" ng-model="configuration.time">
                     </div>
+                    <div class="text-muted help">Random time differences between sent emails in seconds. Comma seperated two integers.</div>                    
                   </div>                
                   <div class="form-group">
                     <label for="type" class="col-sm-2 control-label">Log Type</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="type" placeholder="Log Type" ng-model="configuration.type">
                     </div>
+                    <div class="text-muted help">Email server you use</div>                    
                   </div>
                   <div class="form-group">
                     <label for="logpath" class="col-sm-2 control-label">Log Path</label>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <input type="text" class="form-control" id="logpath" placeholder="Log Path" ng-model="configuration.smtplogpath">
                     </div>
+                    <div class="text-muted help">The log path your email server uses</div>                    
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-6">
@@ -210,27 +215,32 @@
                   <h3>Quick How To</h3>
                   <p>
                       Original SeeS is a standalone python program. The web interface is developed if you are
-                      not a black screen lover unix geek (just kiddin). There are three basic actions you need to take
+                      not a black screen lover unix geek (just kiddin). There are a few basic actions you need to take
                       in order to get SeeS Web with the standalone program.
                   </p>
                   <p>
-                      <h4><span class="label label-info">First</span></h4>
-                      Install SeeS standalone program by following <a href="https://github.com/galkan/sees/blob/master/README.md">Sees ReadMe.</a>
+                      <h3><span class="label label-info">First</span></h3>
+                      Install SeeS standalone by following <a href="https://github.com/galkan/sees/blob/master/README.md">Sees ReadMe.</a>
+                      Make sure Apache user has privileges (rwx) on standalone SeeS installation path aka <span class="label label-success">{SEES_PATH}</span>
                   </p>
                   <p>
-                      <h4><span class="label label-info">Second</span></h4>
-                      Enable mod_rewrite Apache module.
+                      <h3><span class="label label-info">Second</span></h3>
+                      Enable mod_rewrite Apache module, restart. 
+                      Copy the <span class="label label-success">www</span> directory from the <span class="label label-success">{SEES_PATH}</span> to <span class="label label-success">{APACHE_ROOT}/sees/</span>
                   </p>
                   <p>
-                      <h4><span class="label label-info">Third</span></h4>
-                      After handling the Apache/Sees web installation setup the path of sees standalone python program by updating file {APACHE_ROOT}/{SEES_WEB_DIRECTORY}/application/config/sees.php as;
+                      <h3><span class="label label-info">Third</span></h3>
+                      After handling the web setup, update <span class="label label-success">{APACHE_ROOT}/sees/application/config/sees.php</span> as;
                   </p>
                   <p>
                   <code>
-                    $config['sees_root_dir'] =  '{SEES_PYTHON_SCRIPT_ROOT_PATH}';
+                    $config['sees_root_dir'] =  '{SEES_PATH}'; // make sure it ends it with /
                   </code>
                   </p>
-                  <p>You are now ready to use Sees thru web interface.</p>
+                  <p>
+                      <h3><span class="label label-info">Fourth</span></h3>
+                      Go to Configure menu and make sure parameters are right for you. You are now ready to use SeeS thru web interface.
+                  </p>
                   <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/galkan/sees">Need More of SEES?</a></p>
                 </div>
             </div>

@@ -73,3 +73,6 @@ input[type=checkbox] {
   -webkit-transform: scale(1.3);
 }
 
+div.help{
+    padding-top: 5px;
+}
