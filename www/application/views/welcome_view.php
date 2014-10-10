@@ -221,27 +221,66 @@
                   <p>
                       <h3><span class="label label-info">First</span></h3>
                       Install SeeS standalone by following <a href="https://github.com/galkan/sees/blob/master/README.md">Sees ReadMe.</a>
-                      Make sure Apache user has privileges (rwx) on standalone SeeS installation path aka <span class="label label-success">{SEES_PATH}</span>
+                      Assuming that;
+                      <ul>
+                          <li>the Apache user is <span class="label label-success">www-data</span></li>
+                          <li>SeeS standalone is copied under <span class="label label-success">/usr/local/sees/</span></li>
+                          <li>Apache root directory is <span class="label label-success">/var/www/</span></li>
+                          <li>SeeS web is copied under <span class="label label-success">/var/www/sees/</span></li>
+                          <li>Local mail server's log file is <span class="label label-success">/var/log/mail.log</span></li>
+                      </ul>
+                      Run the following;
+                      <br/>
+                      <code>
+                          # chown -R www-data /usr/local/sees /var/www/sees 
+                      </code>
+                      <br/>
+                      <code>
+                          # chmod 755 /usr/local/sees/sees.py
+                      </code>
+                      <br/>
+                      <code>
+                          # chgrp www-data /var/log/mail.log                          
+                      </code>
+                      <br/>
+                      <code>
+                          # chmod 640 /var/log/mail.log
+                      </code>
                   </p>
                   <p>
                       <h3><span class="label label-info">Second</span></h3>
-                      Enable mod_rewrite Apache module, restart. 
-                      Copy the <span class="label label-success">www</span> directory from the <span class="label label-success">{SEES_PATH}</span> to <span class="label label-success">{APACHE_ROOT}/sees/</span>
+                      Enable mod_rewrite Apache module, make sure the enabled site's configuration file has the below bold lines and <b>restart</b>. 
+                </p>
+                <p>
+                      <pre>
+&lt;VirtualHost *:80>
+        DocumentRoot /var/www
+        &lt;Directory />
+                Options FollowSymLinks
+                <b>AllowOverride All</b>
+        &lt;/Directory>
+        &lt;Directory /var/www/>
+                Options FollowSymLinks MultiViews
+                <b>AllowOverride All</b>
+                Order allow,deny
+                allow from all
+        &lt;/Directory>                          
+                      </pre>
                   </p>
                   <p>
                       <h3><span class="label label-info">Third</span></h3>
-                      After handling the web setup, update <span class="label label-success">{APACHE_ROOT}/sees/application/config/sees.php</span> as;
+                      After handling the web setup, update <span class="label label-success">/var/www/sees/application/config/sees.php</span> as;
                   </p>
                   <p>
                   <code>
-                    $config['sees_root_dir'] =  '{SEES_PATH}'; // make sure it ends it with /
+                    $config['sees_root_dir'] =  '/usr/local/sees/'; // make sure it ends it with /
                   </code>
                   </p>
                   <p>
                       <h3><span class="label label-info">Fourth</span></h3>
-                      Go to Configure menu and make sure parameters are right for you. You are now ready to use SeeS thru web interface.
+                      Click to Configure menu on the SeeS web gui and make sure parameter values are right for you. You are now ready to use SeeS thru web interface.
                   </p>
-                  <p><a class="btn btn-primary btn-lg" role="button" href="https://github.com/galkan/sees">Need More of SEES?</a></p>
+                  <p><a class="btn btn-danger btn-lg" role="button" href="https://github.com/galkan/sees">Need More of SEES?</a></p>
                 </div>
             </div>
 
