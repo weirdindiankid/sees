@@ -8,6 +8,9 @@ Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 
 ## A Social Engineering Attack/Audit Tool for Spear Phishing
 
+Note: SeeS now also has a web interface implemented under www directory. Just copy it to your Apache installation under a directory called sees, open it in your browser
+and follow the installation steps...
+
 ![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees.png)
 
 ### What is SEES?
