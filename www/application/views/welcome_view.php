@@ -277,6 +277,12 @@
                   </code>
                   </p>
                   <p>
+                    <div class="alert alert-danger" role="alert">
+                        There's no intrinsic authentication/authorization control embedded in SeeS Web. So use IP restriction or .htaccess
+                        for authorization.
+                    </div>                  
+                  </p>
+                  <p>
                       <h3><span class="label label-info">Fourth</span></h3>
                       Click to Configure menu on the SeeS web gui and make sure parameter values are right for you. You are now ready to use SeeS thru web interface.
                   </p>
