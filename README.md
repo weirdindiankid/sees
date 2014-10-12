@@ -11,6 +11,40 @@ Using SEES for malicious purposes is illegal. USE AT YOUR OWN RISK
 Note: SeeS now also has a web interface implemented under www directory. Just copy it to your Apache installation under a directory called sees, open it in your browser
 and follow the installation steps...
 
+Assuming that;
+
+apache user is www-data
+Sees standalone is copied under /usr/local/sees/. If you want to chance this location, please edit the config['sees_root_dir'] as you like;
+# vi application/config/sees.php
+ "$config['sees_root_dir'] =  '/usr/local/sees/';"  
+Apache root directory is /var/www/
+Sees web is copied is under /var/www/sees/
+Local mail server's log file is /var/log/mail.log 
+
+After that you should run the following
+chown -R www-data /usr/local/sees/ /var/www/html/sees/
+chmod 640 /var/log/mail.log
+chgrp www-data /var/log/mail.log
+chmod 755 /usr/local/sees/sees.py
+
+In addition this, mod_rewrite module should be enabled and "AllowOverride All" directive must be set root / and apache root directory. For instance;
+
+<Directory />
+         Options FollowSymLinks
+         AllowOverride All
+		       Order allow,deny
+		       allow from all
+</Directory>
+
+
+<Directory /var/www/html/sees/>
+         Options FollowSymLinks
+         AllowOverride All
+		       Order allow,deny
+		       allow from all
+</Directory>
+
+
 ![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees_help.PNG)
 
 ![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees_main.PNG)
