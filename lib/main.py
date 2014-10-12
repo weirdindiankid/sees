@@ -53,7 +53,8 @@ class Main:
                 parser.add_argument('--config_file', '-c', action = 'store', dest = 'config_file', help = "Configuration Files", metavar="FILE", required = True)
                 parser.add_argument('--mail_user', '-m', action = 'store', dest = 'mail_user_file', help = "Mail User File", metavar="FILE", required = True)
                 parser.add_argument('--html_file', '-f', action = 'store', dest = 'html_file', help = "Content of Html File" ,metavar="FILE", required = True)
-                parser.add_argument('--verbose', '-v', action = 'store_true', help = "Verbose For Eending Email", default = False)
+                parser.add_argument('--verbose', '-v', action = 'store_true', help = "Verbose For Ending Email", default = False)
+                parser.add_argument('--warning', '-w', action = 'store_true', help = "Warning Message", default = False)
 		
                 self.args = parser.parse_args()
 
