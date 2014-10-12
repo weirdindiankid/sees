@@ -15,13 +15,16 @@ Assuming that;
 ```
 apache user is www-data
 Sees standalone is copied under /usr/local/sees/. If you want to chance this location, please edit the config['sees_root_dir'] as you like;
+
 # vi application/config/sees.php
  "$config['sees_root_dir'] =  '/usr/local/sees/';"  
+
 Apache root directory is /var/www/
 Sees web is copied is under /var/www/sees/
 Local mail server's log file is /var/log/mail.log 
 
 After that you should run the following
+
 chown -R www-data /usr/local/sees/ /var/www/html/sees/
 chmod 640 /var/log/mail.log
 chgrp www-data /var/log/mail.log
