@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #SEES 2.0 otomatize aracı
 #Author: Ender Akbaş @endr_akbas	
-#Author of SEES: Gökhan Alkan @galkan
+#Author of SEES: Gökhan Alkan @thegalkan
 
 function start_menu {
 	clear
