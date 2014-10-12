@@ -25,14 +25,14 @@ Apache root directory is /var/www/
 Sees web is copied is under /var/www/sees/
 Local mail server's log file is /var/log/mail.log 
 
-After that you should run the following
+After that you should run the commands below
 
-chown -R www-data /usr/local/sees/ /var/www/html/sees/
-chmod 640 /var/log/mail.log
-chgrp www-data /var/log/mail.log
-chmod 755 /usr/local/sees/sees.py
+# chown -R www-data /usr/local/sees/ /var/www/html/sees/
+# chmod 640 /var/log/mail.log
+# chgrp www-data /var/log/mail.log
+# chmod 755 /usr/local/sees/sees.py
 
-In addition above, mod_rewrite module should be enabled and "AllowOverride All" directive must be set root / and apache root directory. For instance;
+In addition above, mod_rewrite module should be enabled and "AllowOverride All" directive must be set root / and apache root directory in the Apache config file like this;
 
 <Directory />
         Options FollowSymLinks
