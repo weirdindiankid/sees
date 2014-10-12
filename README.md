@@ -49,6 +49,8 @@ In addition above, mod_rewrite module should be enabled and "AllowOverride All" 
 </Directory>
 ```
 
+Note: Allowed upload file types are "gif|jpg|png|doc|txt|pdf|rar|docx|pptx|ppt|xlsx|xls|zip|html|htm|text", make sure that file size is max 12MB in PHP configuration file.
+
 ![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees_help.PNG)
 
 ![alt tag](https://raw.githubusercontent.com/galkan/sees/master/www/public/img/sees_main.PNG)
