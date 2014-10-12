@@ -41,7 +41,7 @@ In addition above, mod_rewrite module should be enabled and "AllowOverride All" 
 	allow from all
 </Directory>
 
-<Directory /var/www/html/sees/>
+<Directory /var/www/html/>
         Options FollowSymLinks
         AllowOverride All
 	Order allow,deny
