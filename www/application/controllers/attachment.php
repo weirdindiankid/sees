@@ -9,8 +9,8 @@ class Attachment extends CI_Controller {
         $this->load->model('file_model');
         
         $config['upload_path'] = $this->config->item('sees_data_dir');
-        $config['allowed_types'] = 'gif|jpg|png|doc|txt|pdf|rar|docx|pptx|ppt|xlsx|xls|zip';
-        $config['max_size'] = 1024 * 8; // 8MB
+        $config['allowed_types'] = 'gif|jpg|png|doc|txt|pdf|rar|docx|pptx|ppt|xlsx|xls|zip|html|htm|text';
+        $config['max_size'] = 1024 * 12; // 12MB
         $config['encrypt_name'] = FALSE;        
         $this->upload->initialize($config);
     }
