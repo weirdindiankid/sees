@@ -229,6 +229,31 @@ SEES :: Sep 28 17:03:54 : MANAGER@example.com <=> mail_to@example.com :: Result:
 ...
 
 
+### Extra Tool
+
+Sees comes with extra script which was developed bash script named let_sees.sh under the script directory in order to use sees command line easily. 
+
+It has a menu to navigate where you will go. It works in  location of sees.py 
+
+```
+# chmod 755 let_sees
+```
+
+First option is to make mail.user file or whatever you call. Mail.user is needed file for SEES to send mails. It includes sender's name, sender's email, subject and reciepent's mail. Especially when you have so many emails, first option is useful to prepare mail.user structure automatically. You should provide emails that seperated line by line. 
+
+Second option is to send attached emails. Just follow the instructions. You may need to have config and mail.user files before this.
+
+Third option is to send just text emails. Just follow the instructions. You may need to have config and mail.user files before this.
+
+Fourth option is to configure config file. You can name config file whatever you want but SEES default uses sees.cfg file under config directory. You should configure your SEES before sending emails.
+
+Fifth option explains itself.
+
+Or control + C to exit anywhere.
+
+Please provide us feedback for any advice or correction. 
+
+
 ```
 #### Disclaimer
 
